@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+
+.App {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+.App > button {
+  width: 120px;
+  height: 30px;
+  display: block;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+}
+.App > div {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-content: center;
+}
+.App > div > main {
+  width: 400px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.App > div > main > h1 {
+  color: white;
+  font-size: 54px;
+}
+.App > div > main > p {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: justify;
+}
