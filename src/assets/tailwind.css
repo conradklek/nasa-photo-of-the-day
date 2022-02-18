@@ -1,0 +1,30 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+.App {
+  @apply w-screen min-h-screen flex flex-col bg-black overflow-y-auto;
+}
+.App > header {
+  @apply fixed top-0 left-0 flex flex-row items-center justify-start;
+}
+.App > header > h1 {
+  @apply text-2xl font-semibold text-white py-4 mx-4;
+}
+.App > main {
+  @apply w-screen h-screen grid place-items-center text-white;
+}
+.App > main > img {
+  @apply w-full aspect-square m-auto block;
+}
+.App > section {
+  @apply w-72 h-72 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 bg-black p-4 text-white rounded-md shadow-lg shadow-neutral-900/50 overflow-auto;
+} 
+.App > section > h1 {
+  @apply text-2xl font-semibold;
+}
+.App > section > i {
+  @apply block text-sm font-medium mb-4;
+}

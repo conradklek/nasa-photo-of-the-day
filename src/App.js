@@ -1,33 +1,44 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./App.css";
+import "./assets/main.css";
 
 function App() {
   const [data, setData] = useState([]);
-
-  const getDataFromApi = () => {
+  const getDataFromDate = (date) => {
     axios
       .get(
-        "https://api.nasa.gov/planetary/apod?api_key=3qgy7RNMMouhfSQAkdQJCEkyGWQOeTEiX6Jl2ZV6"
+        `https://api.nasa.gov/planetary/apod?api_key=3qgy7RNMMouhfSQAkdQJCEkyGWQOeTEiX6Jl2ZV6&date=${date}`
       )
       .then((res) => {
         setData(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
   return (
     <div className="App">
-      <button onClick={getDataFromApi}>Get Data</button>
-      <div>
+      <header>
+        <h1>Set Date:</h1>
+        <div>
+          <input
+            type="date"
+            onChange={(e) => {
+              getDataFromDate(e.target.value);
+              console.log(e.target.value);
+            }}
+          />
+        </div>
+      </header>
+      <section>
+        <h1>{data.title}</h1>
+        <i>{data.date}</i>
+        <p>{data.explanation}</p>
+      </section>
+      <main>
         <img src={data.url} alt={data.title} />
-        <main>
-          <h1>{data.title}</h1>
-          <p>{data.explanation}</p>
-        </main>
-      </div>
+      </main>
     </div>
   );
 }
